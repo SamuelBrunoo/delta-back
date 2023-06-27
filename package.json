@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "nodemon -e ts,json,js src/server.ts",
-    "build":"tsup api"
+    "start-dev": "nodemon -e ts,json,js api/index.ts",
+    "build":"tsup api",
+    "vercel-build":"echo hello"
   },
   "author": "",
   "license": "ISC",
