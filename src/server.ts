@@ -7,7 +7,9 @@ dotenv.config();
 
 const server = express();
 
-server.use(cors({}));
+server.use(cors({
+  origin: 'https://deltaenergy.com.br'
+}));
 
 server.use(express.urlencoded({ extended: true }));
 
