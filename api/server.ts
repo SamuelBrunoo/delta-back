@@ -11,11 +11,6 @@ server.use(cors({ origin: '*' }));
 
 server.use(express.urlencoded({ extended: true }));
 
-server.use('/', (req: Request, res: Response) => {
-  res.send(JSON.stringify({
-    hello: true
-  }))
-});
 server.use('/api', apiRoutes);
 
 server.use((req: Request, res: Response) => {
