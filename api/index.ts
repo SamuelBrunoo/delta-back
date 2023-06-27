@@ -11,7 +11,7 @@ server.use(cors({ origin: '*' }));
 
 server.use(express.urlencoded({ extended: true }));
 
-server.use('/api', apiRoutes);
+server.use('/', apiRoutes);
 
 server.use((req: Request, res: Response) => {
   res.status(404).json({ error: 'Something goes wrong. Please contact our support.' });
