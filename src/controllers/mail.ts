@@ -27,7 +27,6 @@ export const sendEmail = async (req: Request, res: Response) => {
     Object.entries(mailInfo)
       .some(field => typeof field[1] === "undefined")
   ) {
-    // some field isnt provided. Return Error
     return res.status(400).json({
       error: {
         message: "Preencha todos os campos"
@@ -44,6 +43,9 @@ export const sendEmail = async (req: Request, res: Response) => {
       user: mailing.user,
       pass: mailing.pass,
     },
+    tls: {
+      rejectUnauthorized: false
+    }
   })
 
   const mail: MailOptions = {
@@ -59,7 +61,7 @@ export const sendEmail = async (req: Request, res: Response) => {
 
     res.status(200).json({ "Sended info feedback: ": info })
   } catch (error) {
-    res.status(400).json({ mailing })
+    res.status(400).json({ error, mailing })
   }
 }
 
