@@ -49,19 +49,19 @@ export const sendEmail = async (req: Request, res: Response) => {
   })
 
   const mail: MailOptions = {
-    from: `${mailInfo.name} <${mailInfo.from}>`,
-    to: `${mailing.emailTo}`,
-    subject: `Contato pelo formulário do site (telefone: ${mailInfo.telephone})`,
+    from: mailInfo.from,
+    to: mailing.emailTo,
+    subject: "Formulário Site",
     text: mailInfo.message,
-    html: `<p>${mailInfo.message.replace('\n', '<br/><br/>')}</p>`,
+    html: `<p>Nome: ${mailInfo.name}</br>E-mail: ${mailInfo.from}<br/>Telefone: ${mailInfo.telephone}<br/>Mensagem: ${mailInfo.message.replace('\n', '<br/><br/>')}</p><br/><br/><p>Esta mensagem foi enviada via formulário  do site.</p>`,
   }
 
   try {
     let info = await transporter.sendMail(mail)
 
-    res.status(200).json({ "Sended info feedback: ": info })
+    res.status(200).json({ "Sended: ": info })
   } catch (error) {
-    res.status(400).json({ error, mailing })
+    res.status(400).json({ error })
   }
 }
 
