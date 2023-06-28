@@ -53,7 +53,7 @@ export const sendEmail = async (req: Request, res: Response) => {
     to: mailing.emailTo,
     subject: "Formulário Site",
     text: mailInfo.message,
-    html: `<p>Nome: ${mailInfo.name}</br>E-mail: ${mailInfo.from}<br/>Telefone: ${mailInfo.telephone}<br/>Mensagem: ${mailInfo.message.replace('\n', '<br/><br/>')}</p><br/><br/><p>Esta mensagem foi enviada via formulário  do site.</p>`,
+    html: `<p>Nome: ${mailInfo.name}<br/>E-mail: ${mailInfo.from}<br/>Telefone: ${mailInfo.telephone}<br/>Mensagem: ${mailInfo.message.replace('\n', '<br/><br/>')}</p><br/><br/><p>Esta mensagem foi enviada via formulário  do site.</p>`,
   }
 
   try {
