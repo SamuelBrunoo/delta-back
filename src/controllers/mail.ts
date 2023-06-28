@@ -59,7 +59,7 @@ export const sendEmail = async (req: Request, res: Response) => {
 
     res.status(200).json({ "Sended info feedback: ": info })
   } catch (error) {
-    res.status(400).json({ error })
+    res.status(400).json({ mailing })
   }
 }
 
