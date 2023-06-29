@@ -57,11 +57,11 @@ export const sendEmail = async (req: Request, res: Response) => {
   }
 
   try {
-    let info = await transporter.sendMail(mail)
+    await transporter.sendMail(mail)
 
-    res.status(200).json({ "Sended: ": info })
+    res.status(200).json({ sended: true })
   } catch (error) {
-    res.status(400).json({ error })
+    res.status(400).json({ sended: false, error })
   }
 }
 
